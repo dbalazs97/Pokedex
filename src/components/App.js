@@ -1,13 +1,11 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
 import {Provider} from 'react-redux';
 
 import {store} from '../reducers/index';
+import PokemonList from './PokemonList';
 
 export default () => (
 	<Provider store={store}>
-		<Button variant="contained" color="primary">
-			Hello World
-		</Button>
+		<PokemonList />
 	</Provider>
 );

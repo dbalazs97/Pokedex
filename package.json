@@ -5,6 +5,7 @@
   "dependencies": {
     "@material-ui/core": "^3.1.1",
     "immutable": "^3.8.2",
+    "proptypes": "^1.1.0",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-redux": "^5.0.7",
@@ -22,6 +23,7 @@
   },
   "devDependencies": {
     "eslint": "^5.6.1",
-    "redux-devtools-extension": "^2.13.5"
+    "redux-devtools-extension": "^2.13.5",
+    "prop-types": "latest"
   }
 }
