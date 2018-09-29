@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import PokemonList from '../components/PokemonList';
-import {HideDetails, QueryPokemonActionAsync, SetFavourite, ViewDetails} from '../actions/pokemonActions';
+import {QueryPokemonActionAsync, SetFavourite, ViewDetails} from '../actions/pokemonActions';
 
 
 const mapStateToProps = (state) => {

@@ -58,6 +58,7 @@ class PokemonListComponent extends Component {
 					{!pokemons && <CircularProgress className={classes.progress} />}
 					{pokemons && pokemons.map((value, index) => (
 						<PokemonListItem
+							key={value.get('name')}
 							classes={classes}
 							name={value.get('name')}
 							image={value.get('image')}

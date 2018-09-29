@@ -54,16 +54,16 @@ class DetailsModal extends Component {
 					left: '50%',
 					transform: 'translate(-50%, -50%)',
 				}}>
-					<img src={selected.image} alt={`Image of ${selected.name}`}/>
+					<img src={selected.image} alt={`${selected.name}`}/>
 					<Typography variant="title" id="modal-title">
 						{selected.name}
 					</Typography>
 					<Typography variant="subheading" id="simple-modal-description">
 						XP: {selected.baseXP}<br/>
 						Abilities: {selected.abilities && selected.abilities.map(e => (
-							<Chip color="primary" variant="outlined" label={e} style={chipStyle()}/>))}<br/>
+							<Chip key={e} color="primary" variant="outlined" label={e} style={chipStyle()}/>))}<br/>
 						Stats: {selected.stats && selected.stats.map(e => (
-							<Chip color="primary" variant="outlined" label={`${e.name} - ${e.value}`} style={chipStyle()}/>))}<br/>
+							<Chip key={e.name} color="primary" variant="outlined" label={`${e.name} - ${e.value}`} style={chipStyle()}/>))}<br/>
 					</Typography>
 				</div>
 			</Modal>

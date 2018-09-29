@@ -24,7 +24,7 @@ export default class PokemonListItem extends Component {
 		const {classes, name, image, favorite, index, onFavourite, onClick} = this.props;
 		return (
 			<ListItem key={name} dense button className={classes.listItem} onClick={() => onClick(index)}>
-				<Avatar src={image} on />
+				<Avatar src={image} />
 				<ListItemText primary={name} />
 				<ListItemSecondaryAction>
 					<IconButton color="secondary" className={classes.button} aria-label='Make favorite' onClick={() => onFavourite(index)}>
