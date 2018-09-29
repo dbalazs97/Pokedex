@@ -1,3 +1,4 @@
+import axios from 'axios';
 import {QUERY_POKEMON_ACTION} from './constants';
 
 export const QueryPokemonAction = (pokemons) => {
@@ -9,10 +10,9 @@ export const QueryPokemonAction = (pokemons) => {
 
 export const QueryPokemonActionAsync = () => {
 	return dispatch => {
-		fetch('https://pokeapi.co/api/v2/pokemon', { mode: 'no-cors' })
-			.then(response => response.json())
+		axios.get('https://pokeapi.co/api/v2/pokemon/')
 			.then(response => {
-				console.log(response);
+				dispatch(QueryPokemonAction(response.data.results));
 			})
 			.catch(error => console.error(error));
 	};
