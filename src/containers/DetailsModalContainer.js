@@ -6,7 +6,7 @@ import {HideDetails} from '../actions/pokemonActions';
 const mapStateToProps = (state) => {
 	return {
 		visible: state.pokemon.get('showModal'),
-		selected: state.pokemon.get('selected'),
+		selected: state.pokemon.get('selected').toJS(),
 	};
 };
 

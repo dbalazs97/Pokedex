@@ -1,6 +1,7 @@
 import axios from 'axios';
 import {
 	HIDE_DETAILS_ACTION,
+	POKEMONS_LOADED_ACTION,
 	PROCESS_POKEMON_ACTION,
 	QUERY_POKEMON_ACTION,
 	SET_FAVOURITE_ACTION,
@@ -41,14 +42,21 @@ export const HideDetails = () => {
 	};
 };
 
+export const PokemonsLoaded = () => {
+	return {
+		type: POKEMONS_LOADED_ACTION,
+	};
+};
+
 export const QueryPokemonActionAsync = () => {
 	return dispatch => {
 		axios.get('https://pokeapi.co/api/v2/pokemon/?limit=20&offset=0')
 			.then(response => {
-				const limited = response.data.results.splice(0,40);
+				const limited = response.data.results.splice(0,20);
 				dispatch(QueryPokemonAction(limited));
 				for(let pokemon of limited)
 					dispatch(ProcessPokemonAsync(pokemon.url));
+				dispatch(PokemonsLoaded());
 			})
 			.catch(error => console.error(error));
 	};

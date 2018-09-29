@@ -6,6 +6,7 @@ import {HideDetails, QueryPokemonActionAsync, SetFavourite, ViewDetails} from '.
 const mapStateToProps = (state) => {
 	return {
 		pokemons: state.pokemon.get('pokemons'),
+		isLoading: state.pokemon.get('isLoading'),
 	};
 };
 
