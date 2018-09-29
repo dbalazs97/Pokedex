@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
@@ -11,10 +11,23 @@ const styles = theme => ({
 	},
 });
 
-class CheckboxListSecondary extends React.Component {
+class PokemonListComponent extends Component {
+
+	// region PropTypes
+	static propTypes = {
+		classes: PropTypes.object.isRequired,
+		onLoad: PropTypes.func,
+	};
+	// endregion
+
 	state = {
 		checked: [1],
 	};
+
+	componentDidMount() {
+		this.props.onLoad();
+	}
+
 
 	handleToggle = value => () => {
 		const { checked } = this.state;
@@ -47,8 +60,4 @@ class CheckboxListSecondary extends React.Component {
 	}
 }
 
-CheckboxListSecondary.propTypes = {
-	classes: PropTypes.object.isRequired,
-};
-
-export default withStyles(styles)(CheckboxListSecondary);
+export default withStyles(styles)(PokemonListComponent);

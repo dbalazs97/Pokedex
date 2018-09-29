@@ -9,7 +9,7 @@ export const QueryPokemonAction = (pokemons) => {
 
 export const QueryPokemonActionAsync = () => {
 	return dispatch => {
-		fetch('https://pokeapi.co/api/v2/pokemon')
+		fetch('https://pokeapi.co/api/v2/pokemon', { mode: 'no-cors' })
 			.then(response => response.json())
 			.then(response => {
 				console.log(response);
