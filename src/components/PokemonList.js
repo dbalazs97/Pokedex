@@ -17,6 +17,9 @@ class PokemonListComponent extends Component {
 	static propTypes = {
 		classes: PropTypes.object.isRequired,
 		onLoad: PropTypes.func,
+		onFavourite: PropTypes.func,
+		onItemClick: PropTypes.func,
+		hideDetails: PropTypes.func,
 	};
 	// endregion
 
@@ -46,13 +49,22 @@ class PokemonListComponent extends Component {
 	};
 
 	render() {
-		const { classes, pokemons } = this.props;
+		const { classes, pokemons, onFavourite, onItemClick, hideDetails } = this.props;
 
 		return (
 			<div className={classes.root}>
 				<List>
 					{pokemons && pokemons.map((value, index) => (
-						<PokemonListItem classes={classes} name={value.get('name')} image={value.get('image')} favorite={value.get('isFavourite')} index={index} onFavourite={this.props.onFavourite}/>
+						<PokemonListItem
+							classes={classes}
+							name={value.get('name')}
+							image={value.get('image')}
+							favorite={value.get('isFavourite')}
+							index={index}
+							onFavourite={onFavourite}
+							onClick={onItemClick}
+							onClose={hideDetails}
+						/>
 					))}
 				</List>
 			</div>

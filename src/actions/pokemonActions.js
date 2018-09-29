@@ -1,5 +1,11 @@
 import axios from 'axios';
-import {PROCESS_POKEMON_ACTION, QUERY_POKEMON_ACTION, SET_FAVOURITE_ACTION} from './constants';
+import {
+	HIDE_DETAILS_ACTION,
+	PROCESS_POKEMON_ACTION,
+	QUERY_POKEMON_ACTION,
+	SET_FAVOURITE_ACTION,
+	VIEW_DETAILS_ACTION
+} from './constants';
 
 export const QueryPokemonAction = (pokemons) => {
 	return {
@@ -19,6 +25,19 @@ export const SetFavourite = (index) => {
 	return {
 		type: SET_FAVOURITE_ACTION,
 		index,
+	};
+};
+
+export const ViewDetails = (index) => {
+	return {
+		type: VIEW_DETAILS_ACTION,
+		index,
+	};
+};
+
+export const HideDetails = () => {
+	return {
+		type: HIDE_DETAILS_ACTION,
 	};
 };
 

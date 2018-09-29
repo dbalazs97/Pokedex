@@ -16,13 +16,14 @@ export default class PokemonListItem extends Component {
 		favorite: PropTypes.bool,
 		index: PropTypes.number,
 		onFavourite: PropTypes.func,
+		onClick: PropTypes.func,
 	};
 	// endregion
 
 	render() {
-		const {classes, name, image, favorite, index, onFavourite} = this.props;
+		const {classes, name, image, favorite, index, onFavourite, onClick} = this.props;
 		return (
-			<ListItem key={name} dense button className={classes.listItem}>
+			<ListItem key={name} dense button className={classes.listItem} onClick={() => onClick(index)}>
 				<Avatar src={image} />
 				<ListItemText primary={name} />
 				<ListItemSecondaryAction>

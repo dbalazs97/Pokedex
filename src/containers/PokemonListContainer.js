@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import PokemonList from '../components/PokemonList';
-import {QueryPokemonActionAsync, SetFavourite} from '../actions/pokemonActions';
+import {HideDetails, QueryPokemonActionAsync, SetFavourite, ViewDetails} from '../actions/pokemonActions';
 
 
 const mapStateToProps = (state) => {
@@ -13,6 +13,7 @@ const mapDispatchToProps = (dispatch) => {
 	return {
 		onLoad: () => dispatch(QueryPokemonActionAsync()),
 		onFavourite: (index) => dispatch(SetFavourite(index)),
+		onItemClick: (index) => dispatch(ViewDetails(index)),
 	};
 };
 
