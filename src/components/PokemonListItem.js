@@ -14,17 +14,19 @@ export default class PokemonListItem extends Component {
 		name: PropTypes.string,
 		image: PropTypes.string,
 		favorite: PropTypes.bool,
+		index: PropTypes.number,
+		onFavourite: PropTypes.func,
 	};
 	// endregion
 
 	render() {
-		const {classes, name, image, favorite} = this.props;
+		const {classes, name, image, favorite, index, onFavourite} = this.props;
 		return (
 			<ListItem key={name} dense button className={classes.listItem}>
 				<Avatar src={image} />
 				<ListItemText primary={name} />
 				<ListItemSecondaryAction>
-					<IconButton color="secondary" className={classes.button} aria-label='Make favorite'>
+					<IconButton color="secondary" className={classes.button} aria-label='Make favorite' onClick={() => onFavourite(index)}>
 						<Icon>{favorite ? 'favorite' : 'favorite_border'}</Icon>
 					</IconButton>
 				</ListItemSecondaryAction>

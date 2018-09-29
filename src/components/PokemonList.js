@@ -46,13 +46,13 @@ class PokemonListComponent extends Component {
 	};
 
 	render() {
-		const { classes } = this.props;
+		const { classes, pokemons } = this.props;
 
 		return (
 			<div className={classes.root}>
 				<List>
-					{[0, 1, 2, 3].map(value => (
-						<PokemonListItem classes={classes} name={value} image={'https://via.placeholder.com/50x50'} favorite={(value === 2)}/>
+					{pokemons && pokemons.map((value, index) => (
+						<PokemonListItem classes={classes} name={value.get('name')} image={value.get('image')} favorite={value.get('isFavourite')} index={index} onFavourite={this.props.onFavourite}/>
 					))}
 				</List>
 			</div>
