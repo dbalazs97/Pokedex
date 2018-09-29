@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography/Typography';
 const styles = theme => ({
 	paper: {
 		position: 'absolute',
-		width: theme.spacing.unit * 50,
+		width: '80%',
 		backgroundColor: theme.palette.background.paper,
 		boxShadow: theme.shadows[5],
 		padding: theme.spacing.unit * 4,
@@ -19,29 +19,37 @@ class DetailsModal extends Component {
 	// region PropTypes
 	static propTypes = {
 		classes: PropTypes.object.isRequired,
+		hideDetails: PropTypes.func,
+		visible: PropTypes.bool,
+		selected: PropTypes.shape({
+			name: PropTypes.string,
+			image: PropTypes.string,
+			baseXP: PropTypes.number,
+			abilities: PropTypes.array,
+			stats: PropTypes.array,
+			isFavourite: PropTypes.bool,
+		}),
 	};
 	// endregion
 
-	state = {
-		open: false,
-	};
-
-	handleOpen = () => this.setState({open: true});
-	handleClose = () => this.setState({open: false});
-
 	render() {
-		const { classes } = this.props;
-
+		const { classes, visible, hideDetails, selected } = this.props;
+		console.log(selected);
 		return (
 			<Modal
 				aria-labelledby="simple-modal-title"
 				aria-describedby="simple-modal-description"
-				open={this.state.open}
-				onClose={this.handleClose}
+				open={visible}
+				onClose={hideDetails}
 			>
-				<div className={classes.paper}>
+				<div className={classes.paper} style={{
+					top: '50%',
+					left: '50%',
+					transform: 'translate(-50%, -50%)',
+				}}>
+					<img src={selected.get('image')} alt={`Image of ${selected.get('name')}`}/>
 					<Typography variant="title" id="modal-title">
-						Text in a modal
+						{selected.get('name')}
 					</Typography>
 					<Typography variant="subheading" id="simple-modal-description">
 						Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
