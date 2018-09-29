@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import PokemonListItem from './PokemonListItem';
-import CircularProgress from "@material-ui/core/CircularProgress/CircularProgress";
+import CircularProgress from '@material-ui/core/CircularProgress/CircularProgress';
 
 const styles = theme => ({
 	root: {
@@ -54,7 +54,7 @@ class PokemonListComponent extends Component {
 
 		return (
 			<div className={classes.root}>
-				<List>
+				<List className={'pokelist'}>
 					{!pokemons && <CircularProgress className={classes.progress} />}
 					{pokemons && pokemons.map((value, index) => (
 						<PokemonListItem
