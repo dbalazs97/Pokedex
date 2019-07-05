@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^3.1.1",
-    "axios": "^0.18.0",
+    "axios": "^0.18.1",
     "immutable": "^3.8.2",
     "proptypes": "^1.1.0",
     "react": "^16.5.2",
